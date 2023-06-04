@@ -18,17 +18,36 @@ void posicionamento(int n[3][2]){
   for (i=0; i<3; i++){
     printf("\nDigite a linha do navio %d: ",i+1);
     scanf("%d",&n[i][0]);
-    printf("Digite a coluna do navio %d: ",i+1);
-    scanf("%d",&n[i][1]);
-  //Está aceitando qualquer valor, mas o certo seria aceitar somente valores de 1 a 5, preciso fazer um jeito de que se o usuário errar ele tenha outra possibilidade de digitar as coordenadas novamente em vez de fechar o programa
+    if(n[i][0] >=1 && n[i][0] <=5){
+      printf("Digite a coluna do navio %d: ",i+1);
+      scanf("%d",&n[i][1]);
+      while(n[i][1] <1 || n[i][1] >5){
+        printf("Valor inválido, digite um número no intervalo [1,5]: ");
+        scanf("%d",&n[i][1]);
+      }
+    }else{
+      while(n[i][0] <1 || n[i][0] >5){
+        printf("Valor inválido, digite um número no intervalo [1,5]: ");
+        scanf("%d",&n[i][0]);
+      }
+      printf("Digite a coluna do navio %d: ",i+1);
+      scanf("%d",&n[i][1]);
+      while(n[i][1] <1 || n[i][1] >5){
+        printf("Valor inválido, digite um número no intervalo [1,5]: ");
+        scanf("%d",&n[i][1]);
+      }
+    }
   }
+  system("clear");
 }
 
 int main(){
-  int navios1[3][2];
+  int navios1[3][2], navios2[3][2];
   tabuleiro();
   printf("\nJogador 1, digite as coordenadas dos seus três navios:\n");
   posicionamento(navios1);
-  //printf("Jogador 2, digite as coordenadas dos seus três navios:\n");
+  tabuleiro();
+  printf("\nJogador 2, digite as coordenadas dos seus três navios:\n");
+  posicionamento(navios2);
   return 0;
 }
