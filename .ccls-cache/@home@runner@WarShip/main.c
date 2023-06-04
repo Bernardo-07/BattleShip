@@ -37,17 +37,63 @@ void posicionamento(int n[3][2]){
         scanf("%d",&n[i][1]);
       }
     }
+
   }
   system("clear");
 }
 
 int main(){
+  
   int navios1[3][2], navios2[3][2];
+  int tabuleiro1, tabuleiro2;
+  int turno = 1;
+  int tiro[2];
+  int i;
+  
   tabuleiro();
   printf("\nJogador 1, digite as coordenadas dos seus três navios:\n");
   posicionamento(navios1);
+  
   tabuleiro();
   printf("\nJogador 2, digite as coordenadas dos seus três navios:\n");
   posicionamento(navios2);
+
+  switch(turno){
+    case 1:
+      printf("Vez do jogador 1:\n");
+      tabuleiro();
+      
+      printf("Linha (1-5): ");
+      scanf("%d",&tiro[0]);
+      printf("Coluna (1-5): ");
+      scanf("%d",&tiro[1]);
+
+      for(i=0; i<3; i++){
+        if(tiro[0] == navios2[i][0] && tiro[1] == navios2[i][1]){
+          printf("Você acertou o tiro!");
+        }else{
+          printf("Você errou o tiro...");
+        }
+      }
+    break;
+    case 2:
+      printf("Vez do jogador 2:\n");
+      tabuleiro();
+      
+      printf("Linha (1-5): ");
+      scanf("%d",&tiro[0]);
+      printf("Coluna (1-5): ");
+      scanf("%d",&tiro[1]);
+
+      for(i=0; i<3; i++){
+        if(tiro[0] == navios1[i][0] && tiro[1] == navios1[i][1]){
+          printf("Você acertou o tiro!");
+        }else{
+          printf("Você errou o tiro...");
+        }
+      }
+    break;
+  }
+  
   return 0;
 }
