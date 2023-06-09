@@ -134,3 +134,7 @@ int main(){
   
   return 0;
 }
+//preciso checar se o usuário digitou coordenadas que ele já tinha digitado antes
+//preciso atualizar o tabuleiro em tempo real
+//preciso dar um jeito de trancar o tiro acertado,para que não conte pontos para o jogador que der o tiro no barco que já tinha afundado
+//adicionar a mensagem para o vencedor
