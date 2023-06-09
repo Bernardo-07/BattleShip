@@ -49,6 +49,8 @@ int main(){
   int turno = 1;
   int tiro[2];
   int i;
+  int pontos1=0, pontos2=0;
+  int acerto=0; //acerto foi definido como falso
   
   tabuleiro();
   printf("\nJogador 1, digite as coordenadas dos seus três navios:\n");
@@ -58,42 +60,58 @@ int main(){
   printf("\nJogador 2, digite as coordenadas dos seus três navios:\n");
   posicionamento(navios2);
 
-  switch(turno){
-    case 1:
-      printf("Vez do jogador 1:\n");
-      tabuleiro();
+  do{
+    switch(turno){
+      case 1:
+        printf("\nVez do jogador 1:\n");
+        tabuleiro();
       
-      printf("Linha (1-5): ");
-      scanf("%d",&tiro[0]);
-      printf("Coluna (1-5): ");
-      scanf("%d",&tiro[1]);
+        printf("Linha (1-5): ");
+        scanf("%d",&tiro[0]);
+        printf("Coluna (1-5): ");
+        scanf("%d",&tiro[1]);
 
-      for(i=0; i<3; i++){
-        if(tiro[0] == navios2[i][0] && tiro[1] == navios2[i][1]){
-          printf("Você acertou o tiro!");
-        }else{
-          printf("Você errou o tiro...");
+        for(i=0; i<3; i++){
+          if(tiro[0] == navios2[i][0] && tiro[1] == navios2[i][1]){
+            acerto = 1;
+            pontos1++;
+            //se o jogador acertar as coordenadas de algum navio inimigo então sua contagem de pontos aumenta e a variável acerto fica definida como verdadeira
+          }
         }
-      }
-    break;
-    case 2:
-      printf("Vez do jogador 2:\n");
-      tabuleiro();
+        if (acerto == 1){
+          printf("\nVocê acertou o tiro!, Pontos = %d",pontos1);
+        }else{
+          printf("\nVocê errou o tiro..., Pontos = %d",pontos1);
+        }
+        acerto = 0;
+        turno = 2;
+        //reseta a variável acerto para falso e muda o turno de jogo
+      break;
+      case 2:
+        printf("\nVez do jogador 2:\n");
+        tabuleiro();
       
-      printf("Linha (1-5): ");
-      scanf("%d",&tiro[0]);
-      printf("Coluna (1-5): ");
-      scanf("%d",&tiro[1]);
+        printf("Linha (1-5): ");
+        scanf("%d",&tiro[0]);
+        printf("Coluna (1-5): ");
+        scanf("%d",&tiro[1]);
 
-      for(i=0; i<3; i++){
-        if(tiro[0] == navios1[i][0] && tiro[1] == navios1[i][1]){
-          printf("Você acertou o tiro!");
-        }else{
-          printf("Você errou o tiro...");
+        for(i=0; i<3; i++){
+          if(tiro[0] == navios1[i][0] && tiro[1] == navios1[i][1]){
+            acerto = 1;
+            pontos2++;
+          }
         }
-      }
-    break;
-  }
+        if (acerto == 1){
+          printf("Você acertou o tiro!, Pontos = %d",pontos2);
+        }else{
+          printf("Você errou o tiro..., Pontos = %d",pontos2);
+        }
+        acerto = 0;
+        turno = 1;
+      break;
+    }
+  }while(pontos1!=3 || pontos2!=3); //continua rodando enquanto a contagem de pontos não chega ao máximo (3 pts) 
   
   return 0;
 }
