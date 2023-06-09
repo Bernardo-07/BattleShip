@@ -130,7 +130,7 @@ int main(){
         turno = 1;
       break;
     }
-  }while(pontos1!=3 || pontos2!=3); //continua rodando enquanto a contagem de pontos não chega ao máximo (3 pts) 
+  }while(pontos1!=3 && pontos2!=3); //continua rodando enquanto a contagem de pontos não chega ao máximo (3 pts) 
   
   return 0;
 }
