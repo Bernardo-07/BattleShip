@@ -15,26 +15,38 @@ void tabuleiro(){
 
 void posicionamento(int n[3][2]){
   int i;
+  
   for (i=0; i<3; i++){
+    
     printf("\nDigite a linha do navio %d: ",i+1);
     scanf("%d",&n[i][0]);
+    
     if(n[i][0] >=1 && n[i][0] <=5){
+    
       printf("Digite a coluna do navio %d: ",i+1);
       scanf("%d",&n[i][1]);
+      //se as coordenada x digitada está entre 1 e 5 então, irá digitar a coordenada y
+      
       while(n[i][1] <1 || n[i][1] >5){
         printf("Valor inválido, digite um número no intervalo [1,5]: ");
         scanf("%d",&n[i][1]);
+        //enquanto a coordenada y não estiver no intervalo de 1 a 5, terá que digitar uma nova coordenada
       }
     }else{
+      
       while(n[i][0] <1 || n[i][0] >5){
         printf("Valor inválido, digite um número no intervalo [1,5]: ");
         scanf("%d",&n[i][0]);
+        //enquanto a coordenada x não estiver no intervalo de 1 a 5, terá que digitar uma nova coordenada
       }
+      //ao digitar um valor válido para a coordenada x, então prossiga para digitar a coordenada y
       printf("Digite a coluna do navio %d: ",i+1);
       scanf("%d",&n[i][1]);
+      
       while(n[i][1] <1 || n[i][1] >5){
         printf("Valor inválido, digite um número no intervalo [1,5]: ");
         scanf("%d",&n[i][1]);
+        //faz a checagem se a coordenada y digitada está no intervalo válido
       }
     }
 
