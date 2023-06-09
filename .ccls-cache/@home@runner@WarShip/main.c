@@ -63,6 +63,7 @@ int main(){
   int i;
   int pontos1=0, pontos2=0;
   int acerto=0; //acerto foi definido como falso
+  char vazio;
   
   tabuleiro();
   printf("\nJogador 1, digite as coordenadas dos seus três navios:\n");
@@ -75,6 +76,7 @@ int main(){
   do{
     switch(turno){
       case 1:
+        system("clear");
         printf("\nVez do jogador 1:\n");
         tabuleiro();
       
@@ -95,11 +97,14 @@ int main(){
         }else{
           printf("\nVocê errou o tiro..., Pontos = %d",pontos1);
         }
+        printf("\nDigite algo e dê enter para continuar\n");
+        scanf("%s",&vazio);
         acerto = 0;
         turno = 2;
         //reseta a variável acerto para falso e muda o turno de jogo
       break;
       case 2:
+        system("clear");
         printf("\nVez do jogador 2:\n");
         tabuleiro();
       
@@ -119,6 +124,8 @@ int main(){
         }else{
           printf("Você errou o tiro..., Pontos = %d",pontos2);
         }
+        printf("\nDigite algo e dê enter para continuar\n");
+        scanf("%s",&vazio);
         acerto = 0;
         turno = 1;
       break;
