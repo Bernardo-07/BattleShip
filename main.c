@@ -72,6 +72,7 @@ void posicionamento(int n[3][2]){
   system("clear");
 }
 
+
 int main(){
   
   int navios1[3][2], navios2[3][2];
@@ -166,6 +167,15 @@ int main(){
       break;
     }
   }while(pontos1!=3 && pontos2!=3); //continua rodando enquanto a contagem de pontos não chega ao máximo (3 pts) 
+  
+  system("clear");
+  if (pontos1 > pontos2){
+    tabuleiro_atualizado(tabuleiro1);
+    printf("\nO jogador 1 é o vencedor!\n");
+  }else{
+    tabuleiro_atualizado(tabuleiro2);
+    printf("\nO jogador 2 é o vencedor!\n");
+  }
   
   return 0;
 }
