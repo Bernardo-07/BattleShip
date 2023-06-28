@@ -105,7 +105,7 @@ int main(){
     switch(turno){
       case 1:
         system("clear");
-        printf("\nVez do jogador 1:\n");
+        printf("\nVez do jogador 1:\t\t\tPontos: %d\n",pontos1);
         tabuleiro_atualizado(tabuleiro1);
       
         printf("Linha (1-5): ");
@@ -124,10 +124,10 @@ int main(){
         y = tiro[1]-1;
         if (acerto == 1){
           tabuleiro1[x][y] = 1;
-          printf("\nVocê acertou o tiro!, Pontos = %d",pontos1);
+          printf("\nVocê acertou o tiro!");
         }else{
           tabuleiro1[x][y] = -1;
-          printf("\nVocê errou o tiro..., Pontos = %d",pontos1);
+          printf("\nVocê errou o tiro...");
         }
         printf("\nDigite um ponto '.' e dê enter para continuar\n");
         scanf("%s",&vazio);
@@ -137,7 +137,7 @@ int main(){
       break;
       case 2:
         system("clear");
-        printf("\nVez do jogador 2:\n");
+        printf("\nVez do jogador 2:\t\t\tPontos: %d\n",pontos2);
         tabuleiro_atualizado(tabuleiro2);
       
         printf("Linha (1-5): ");
@@ -155,10 +155,10 @@ int main(){
         y = tiro[1]-1;
         if (acerto == 1){
           tabuleiro2[x][y] = 1;
-          printf("Você acertou o tiro!, Pontos = %d",pontos2);
+          printf("\nVocê acertou o tiro!");
         }else{
           tabuleiro2[x][y] = -1;
-          printf("Você errou o tiro..., Pontos = %d",pontos2);
+          printf("\nVocê errou o tiro...");
         }
         printf("\nDigite algo e dê enter para continuar\n");
         scanf("%s",&vazio);
@@ -179,6 +179,5 @@ int main(){
   
   return 0;
 }
-//adicionar a mensagem para o vencedor
 //preciso dar um jeito de trancar o tiro acertado,para que não conte pontos para o jogador que der o tiro no barco que já tinha afundado
 //preciso checar se o usuário digitou coordenadas que ele já tinha digitado antes
