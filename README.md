@@ -11,4 +11,4 @@
 <p>✔️ Having fun playing this game</p>
 
 ## :bomb: How it works
-<p>The program first asks the user where did he wants to put his ships...</p>
+<p>The program first asks the user where he wants to place his ships, then the coordinates are stored in matrices that are later accessed to check if the opponent hit the shot or not.</p>
